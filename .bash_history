@@ -69,3 +69,14 @@ php artisan config:clear
 php artisan route:list
 php artisan serve
 clear
+ls -l
+ls -l
+ls -l
+ls
+ls -la
+php artisan serve
+php artisan serve --host 0.0.0.0 --port 8000
+docker-php-ext-install pdo_mysql
+php artisan serve
+php artisan serve
+clear
