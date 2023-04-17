@@ -193,7 +193,15 @@ return [
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        App\Providers\RouteServiceProvider\AuthRouteProvider::class,
+        App\Providers\RouteServiceProvider\CargaRouteProvider::class,
+        App\Providers\RouteServiceProvider\EnderecoRouteProvider::class,
+        App\Providers\RouteServiceProvider\EntregaRouteProvider::class,
+        App\Providers\RouteServiceProvider\PedidoRouteProvider::class,
+        App\Providers\RouteServiceProvider\RotaRouteProvider::class,
+        App\Providers\RouteServiceProvider\TipoRouteProvider::class,
+        App\Providers\RouteServiceProvider\UsuarioRouteProvider::class,
+        App\Providers\RouteServiceProvider\VeiculoRouteProvider::class,
 
     ],
 
