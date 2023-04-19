@@ -29,21 +29,19 @@ class c_usuario extends generic_controller
             Hash::check($request->password, $user->password);
 
             return response()->json([
-                'status'    =>  Response::HTTP_CONTINUE,
                 'message'   =>  'Autenticado', 
                 'item'      =>  [
                     'user'      =>  $user,
                     'token'     =>  $user->createToken('token')->plainTextToken
                 ]
-            ]);
+            ], Response::HTTP_OK);
         }
         catch(\Exception $e)
         {
             return response()->json([
-                'status'    => Response::HTTP_BAD_REQUEST,
                 'message'   => 'Usuário ou senha não encontrados.', 
                 'error'     => $e->getMessage()
-            ]);
+            ], Response::HTTP_BAD_REQUEST);
         }
     }
 
@@ -60,18 +58,16 @@ class c_usuario extends generic_controller
             $user = User::create($request->all());
 
             return response()->json([
-                'status'    =>  Response::HTTP_CREATED,
                 'message'   =>  'Usuário registrado.',
                 'item'      =>  $user
-            ]);
+            ], Response::HTTP_CREATED);
         }
         catch(\Exception $e)
         {
             return response()->json([
-                'status'    => Response::HTTP_BAD_REQUEST,
                 'message'   => 'Usuário ou senha inválidos ou já existem.', 
                 'error'     => $e->getMessage()
-            ]);
+            ], Response::HTTP_BAD_REQUEST);
         }
     }
 
@@ -82,21 +78,18 @@ class c_usuario extends generic_controller
      */
     public function logout(): JsonResponse
     {
-        error_log('aaaa');
         try
         {
             return response()->json([
-                'status'    =>  Response::HTTP_OK,
                 'message'   =>  'Token invalidado.',
                 'item'      =>  auth('sanctum')->user()->tokens()->delete()
-            ]);
+            ], Response::HTTP_OK);
         }
         catch(\Exception $e)
         {
             return response()->json([
-                'status'    => Response::HTTP_INTERNAL_SERVER_ERROR,
                 'message'   => $e->getMessage()
-            ]);
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
         
     }
