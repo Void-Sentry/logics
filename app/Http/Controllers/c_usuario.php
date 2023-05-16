@@ -25,7 +25,7 @@ class c_usuario extends generic_controller
     {
         try
         {
-            $user = User::where('email', $request->email)->with('tipo_usuario')->first();
+            $user = User::where('email', $request->email)->first();
             Hash::check($request->password, $user->password);
 
             return response()->json([
@@ -54,7 +54,6 @@ class c_usuario extends generic_controller
     {
         try
         {
-            error_log(json_encode($request->password));
             $request['password'] = Hash::make($request->password);
             $user = User::create($request->all());
 
