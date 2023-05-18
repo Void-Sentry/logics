@@ -13,7 +13,8 @@ class rotas extends Model
     protected $fillable = [
         'descricao',
         'cidade',
-        'bairro'
+        'bairro',
+        'veiculo_id'
     ];
 
     public function veiculos(): HasMany {

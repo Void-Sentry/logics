@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class TipoUsuario extends Seeder
 {
@@ -18,6 +19,14 @@ class TipoUsuario extends Seeder
             ],
             [
                 'descricao' => 'colab',
+            ]
+        ]);
+        DB::table('users')->insert([
+            [
+                'name' => 'admin',
+                'email' => 'admin@admin.com',
+                'password' => Hash::make('default'),
+                'tipo_usuario_id' => 1
             ]
         ]);
     }

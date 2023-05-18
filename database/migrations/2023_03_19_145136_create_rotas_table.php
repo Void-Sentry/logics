@@ -16,7 +16,7 @@ return new class extends Migration
             $table->String('cidade');
             $table->String('bairro');
             $table->String('descricao');
-            $table->foreignId('rota_id')
+            $table->foreignId('veiculo_id')
                 ->constrained('veiculos')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
