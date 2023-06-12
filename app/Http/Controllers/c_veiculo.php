@@ -12,4 +12,9 @@ class c_veiculo extends generic_controller
     {
         parent::__construct($request, $model);
     }
+
+    public function show()
+    {
+        return $this->model->where('usuario_id', $this->request->id)->first();
+    }
 }

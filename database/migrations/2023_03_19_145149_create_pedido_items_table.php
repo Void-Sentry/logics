@@ -19,6 +19,10 @@ return new class extends Migration
             $table->String('quantidade');
             $table->String('descricao');
             $table->unsignedFloat('peso');
+            $table->foreignId('carga_id')
+                ->constrained('cargas')
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
             $table->foreignId('endereco_id')
                 ->constrained('enderecos')
                 ->cascadeOnUpdate()

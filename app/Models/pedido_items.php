@@ -16,7 +16,8 @@ class pedido_items extends Model
         'cliente',
         'quantidade',
         'descricao',
-        'peso'
+        'peso',
+        'carga_id'
     ];
 
     public function endereco(): HasOne {

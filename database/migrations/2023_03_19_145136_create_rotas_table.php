@@ -13,8 +13,6 @@ return new class extends Migration
     {
         Schema::create('rotas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->String('cidade');
-            $table->String('bairro');
             $table->String('descricao');
             $table->foreignId('veiculo_id')
                 ->constrained('veiculos')

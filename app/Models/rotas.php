@@ -10,12 +10,16 @@ class rotas extends Model
 {
     use HasFactory;
 
+    protected $with = ['enderecos'];
+
     protected $fillable = [
         'descricao',
-        'cidade',
-        'bairro',
         'veiculo_id'
     ];
+
+    public function enderecos(): HasMany {
+        return $this->hasMany(endereco::class, 'rota_id', 'id');
+    }
 
     public function veiculos(): HasMany {
         return $this->hasMany('veiculos');
